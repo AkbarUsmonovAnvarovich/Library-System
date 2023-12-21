@@ -1,12 +1,5 @@
 using System.Xml;
 
-public class Book
-{
-    public string Title;
-    public string Author;
-    public int status;
-}
-
 public class Library
 {
     int BookIndex = 0;
@@ -82,5 +75,27 @@ public class Library
             }
             Console.Write("\nEnter the index of the book to return: ");
         }
+    }
+
+    public void Booklist()
+    {
+        Console.WriteLine("\n-----Booklist-----");
+        foreach (KeyValuePair<int, Book> i in storage)
+        {
+            Console.WriteLine($"{i.Key}.");
+            Console.WriteLine($"  Title: {i.Value.Title}");
+            Console.WriteLine($"  Author: {i.Value.Author}");
+            if (i.Value.status == 0)
+            {
+                Console.WriteLine($"  Status: avalible");
+            }
+            else
+            {
+                Console.WriteLine($"  Status: not avalible (borrowed)");
+            }
+            Console.WriteLine();
+
+        }
+        Console.WriteLine("\n------------------");
     }
 }
